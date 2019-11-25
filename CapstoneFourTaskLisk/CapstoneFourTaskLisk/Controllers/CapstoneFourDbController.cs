@@ -25,6 +25,31 @@ namespace CapstoneFourTaskLisk.Controllers
             return View(_database.TaskList.ToList());
         }
 
+        [HttpGet]
+        public IActionResult AddTask()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+
+        public IActionResult AddTask(TaskList tasklist)
+        {
+            if (ModelState.IsValid)
+            {
+                _database.TaskList.Add(tasklist);
+                _database.SaveChanges();
+                return RedirectToAction("ViewTaskList");
+            }
+            return View();
+        }
+
+
+
+
+
+
 
     }
 }
