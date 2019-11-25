@@ -21,14 +21,11 @@ namespace CapstoneFourTaskLisk.Controllers
             return View();
         }
 
-        public IActionResult ViewTaskList()
+        public IActionResult ViewTaskList(TaskList task)
         {
-            string id = User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            if (_database.AspNetUsers.Where(user => user.Id == id) != null)
-            {
-                return View(_database.TaskList.Where(tasks => tasks.UserId == id).ToList());
-            }
-            return View();
+           
+                return View(_database.TaskList.ToList());
+            
         }
 
         [HttpGet]

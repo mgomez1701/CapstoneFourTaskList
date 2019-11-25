@@ -145,3 +145,4 @@ C:\Users\micha\OneDrive\Desktop\C# Boot Camp\CapstoneFour\CapstoneFourTaskLisk\C
 C:\Users\micha\OneDrive\Desktop\C# Boot Camp\CapstoneFour\CapstoneFourTaskLisk\CapstoneFourTaskLisk\obj\Debug\netcoreapp3.0\CapstoneFourTaskLisk.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\micha\OneDrive\Desktop\C# Boot Camp\CapstoneFour\CapstoneFourTaskLisk\CapstoneFourTaskLisk\obj\Debug\netcoreapp3.0\CapstoneFourTaskLisk.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\micha\OneDrive\Desktop\C# Boot Camp\CapstoneFour\CapstoneFourTaskLisk\CapstoneFourTaskLisk\obj\Debug\netcoreapp3.0\Razor\Views\CapstoneFourDb\ViewTaskList.cshtml.g.cs
+C:\Users\micha\OneDrive\Desktop\C# Boot Camp\CapstoneFour\CapstoneFourTaskLisk\CapstoneFourTaskLisk\obj\Debug\netcoreapp3.0\Razor\Views\CapstoneFourDb\AddTask.cshtml.g.cs

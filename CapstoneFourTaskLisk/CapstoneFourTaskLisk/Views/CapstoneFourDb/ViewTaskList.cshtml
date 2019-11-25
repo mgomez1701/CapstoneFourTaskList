@@ -2,10 +2,10 @@
 @{
     ViewData["Title"] = "ViewTaskList";
 }
-
+@using System.Security.Claims;
 @model List<TaskList>
 
-<h1>ViewTaskList</h1>
+<h1>View Task List</h1>
 
 <table class="table">
     <tr>Id</tr>
@@ -13,8 +13,11 @@
     <tr>Due Date</tr>
     <tr>Complete</tr>
 
-@foreach (TaskList task in Model)
-{
+    @foreach (TaskList task in Model)
+    {
+        if (User.FindFirst(ClaimTypes.NameIdentifier).Value == task.UserId)
+        {
+
 
 
 <tr>
@@ -28,7 +31,7 @@
     <td><a href="../CapstoneFourDb/DeleteTask?=id=@task.TaskId" class="btn btn-danger"> Delete Task</a></td>
 
 </tr>
-
-}
+        }
+    }
 </table>
-<td><a href ="../CapstoneFourDb/AddTask" class="btn btn-primary">Add New Task </a></td>
+<td><a href="../CapstoneFourDb/AddTask" class="btn btn-primary">Add New Task </a></td>

@@ -29,7 +29,7 @@ namespace CapstoneFourTaskLisk
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            var connectionString = "Server=.\\SQLExpress;Database=SchoolDb;Trusted_Connection=True;ConnectRetryCount=0";
+            var connectionString = "Server=.\\SQLExpress;Database=CapstoneFourDb;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<CapstoneFourDbContext>(options => options.UseSqlServer(connectionString));
 
             services.AddDbContext<ApplicationDbContext>(options =>
