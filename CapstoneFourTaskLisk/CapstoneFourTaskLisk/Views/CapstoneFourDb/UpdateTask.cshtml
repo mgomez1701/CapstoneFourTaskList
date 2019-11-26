@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "UpdateTask";
+}
+@using System.Security.Claims;
+
+@model TaskList
+
+<h1>Update Task</h1>
+@if (Model.UserId != User.FindFirst(ClaimTypes.NameIdentifier).Value)
+{
+    //Invalid login
+}
+else
+{
+
+
+<form action="../CapstoneFourDb/UpdateTask" method="post">
+    <input type="text" name="TaskDescription" value="@Model.TaskDescription" />
+    <label>Due Date</label>
+    <input type="date" name="DueDate" value="@Model.DueDate.ToString("yyyy-MM-dd")" />
+    <label>Completed?</label>
+
+    @if (Model.Complete == true)
+    {
+        <label>Yes</label>
+        <input type="radio" name="Complete" value="true" checked />
+        <label>No</label>
+        <input type="radio" name="Complete" value="false" />
+
+    }
+    else
+    {
+        <label>Yes</label>
+        <input type="radio" name="Complete" value="true" />
+        <label>No</label>
+        <input type="radio" name="Complete" value="false" checked />
+    }
+
+    @*we want to keep these ids the same in the update section.*@ 
+    <input type="hidden" name="TaskId" value="@Model.TaskId" />
+    <input type="hidden" name="UserId" value="@Model.UserId" />
+
+    <input type="submit" class="btn btn-primary" value="Add" />
+
+
+</form>
+}

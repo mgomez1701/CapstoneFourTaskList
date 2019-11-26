@@ -14,10 +14,9 @@ namespace CapstoneFourTaskLisk.Models
         [Required]
         [MaxLength (450)]
         public string TaskDescription { get; set; }
-        public DateTime DateTime { get; }
-        public DateTime DueDate { get; }
+        public DateTime DueDate { get; set; }
         
-        public bool? Complete { get; set; }
+        public bool Complete { get; set; }
         public string UserId { get; set; }
 
         public virtual AspNetUsers User { get; set; }
@@ -30,7 +29,7 @@ namespace CapstoneFourTaskLisk.Models
         {
             TaskId = taskId;
             TaskDescription = taskDescription;
-            DateTime  = dueDate;
+            DueDate  = dueDate;
             Complete = complete;
             UserId = userId;
         }

@@ -8,30 +8,31 @@
 <h1>View Task List</h1>
 
 <table class="table">
-    <tr>Id</tr>
-    <tr>Description</tr>
-    <tr>Due Date</tr>
-    <tr>Complete</tr>
-
+    <tr>
+    <td>Id</td>
+    <td>Description</td>
+    <td>Due Date</td>
+    <td>Complete</td>
+    </tr>
     @foreach (TaskList task in Model)
     {
         if (User.FindFirst(ClaimTypes.NameIdentifier).Value == task.UserId)
         {
 
+            <tr>
+                <td>@task.TaskId</td>
+                <td>@task.TaskDescription</td>
+                <td>@task.DueDate</td>
+                <td>@task.Complete</td>
+                <td></td>
 
+                <td><a href="../CapstoneFourDb/UpdateTask?id=@task.TaskId" class="btn btn-primary"> Update Task</a></td>
+                <td><a href="../CapstoneFourDb/DeleteTask?id=@task.TaskId" class="btn btn-danger"> Delete Task</a></td>
 
-<tr>
-    <td>@task.TaskId</td>
-    <td>@task.TaskDescription</td>
-    <td>@task.DueDate</td>
-    <td>@task.Complete</td>
-    <td></td>
-
-    <td><a href="../CapstoneFourDb/UpdateTask?=id=@task.TaskId" class="btn btn-primary"> Update Task</a></td>
-    <td><a href="../CapstoneFourDb/DeleteTask?=id=@task.TaskId" class="btn btn-danger"> Delete Task</a></td>
-
-</tr>
+            </tr>
         }
     }
 </table>
+
+
 <td><a href="../CapstoneFourDb/AddTask" class="btn btn-primary">Add New Task </a></td>

@@ -38,15 +38,18 @@ namespace CapstoneFourTaskLisk.Controllers
         [HttpPost]
 
         public IActionResult AddTask(TaskList tasklist)
-        {
-            if (ModelState.IsValid)
+        {             
+                    if (ModelState.IsValid)
+                    {
+                        _database.TaskList.Add(tasklist);
+                        _database.SaveChanges();
+                        return RedirectToAction("ViewTaskList");
+                    }
+            else
             {
-                _database.TaskList.Add(tasklist);
-                _database.SaveChanges();
-                return RedirectToAction("ViewTaskList");
+                return View();
             }
-            return View();
-        }
+         }
 
         public IActionResult DeleteTask(int id)
         {
@@ -60,6 +63,30 @@ namespace CapstoneFourTaskLisk.Controllers
             return RedirectToAction("ViewTaskList");
 
         }
+        [HttpGet]
+        public IActionResult UpdateTask(int id)
+        {
+            return View(_database.TaskList.Find(id));
+        }
+        [HttpPost]
+        public IActionResult UpdateTask(TaskList newTask)
+        {
+            if (ModelState.IsValid)
+            {
+                TaskList oldTask = _database.TaskList.Find(newTask.TaskId);
+                oldTask.TaskDescription = newTask.TaskDescription;
+                oldTask.DueDate = newTask.DueDate;
+                oldTask.Complete = newTask.Complete;
+
+
+                _database.Entry(oldTask).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                _database.Update(oldTask);
+                _database.SaveChanges();
+
+            }
+            return RedirectToAction("ViewTaskList");
+        }
+
 
 
 

@@ -2,16 +2,29 @@
 @{
     ViewData["Title"] = "AddTask";
 }
+@using System.Security.Claims;
+
 @model TaskList
 
 <h1>Add Task</h1>
+@*@if (Model.FindFirst(ClaimTypes.NameIdentifier).Value)
+{
+
+}*@
+
 
 <form action="../CapstoneFourDb/AddTask" method="post">
-    <input type="text" name="Description" placeholder="Description" />
-    <input type="datetime" name="DueDate" placeholder="Due Date" />
-    <input type="hidden" name="UserId"/>
+    <input type="text" name="TaskDescription" placeholder="Description" />
+    <label>Due Date</label>
+    <input type="date" name="DueDate" placeholder="Due Date" />
+
+    @*<input type="radio" name="Complete" value="True" />
+    <input type="radio" name="Complete" value="False" />*@
+
+    <input type="hidden" name="UserId" value="@User.FindFirst(ClaimTypes.NameIdentifier).Value" />
 
     <input type="submit" class="btn btn-primary" value="Add" />
 
 
 </form>
+
